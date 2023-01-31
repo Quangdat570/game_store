@@ -1,0 +1,29 @@
+.content_footer {
+    color: #fff;
+}
+.background {
+    background-color: #171A21;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.footer {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-top: 1px solid #525252;
+    border-bottom: 1px solid #525252;
+}
+.text_footer {
+    color: #8F98A0;
+    font-size: 12px;
+    line-height: 16px;
+}
+.more {
+    font-size: 14px;
+    line-height: 16px;
+    color: #C6D4DF;
+    cursor: pointer;
+}
+.more:hover {
+    color: #fff;
+}

@@ -1,0 +1,90 @@
+
+.page {
+    background-color: #1B2838;
+    color: #fff;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.colLeft {
+    padding: 0 3rem;
+    border: 1px solid #525252;
+    background-color: #344654;
+    height: 500px;
+}
+.search {
+    width: 100%;
+  
+    padding: 0.5rem 2rem;
+  
+    outline: none;
+    font-size: 1.5rem;
+    font-family: "EB Garamond", serif;
+    color: #333;
+  }
+
+  .sort {
+    /* display: flex;
+    justify-content: flex-end; */
+    height: 100%;
+    width: 100%;
+    margin-top: 0.5rem 2rem;
+  }
+  
+  .select {
+    width: 100%;
+    padding: 1rem 1rem;
+    outline: none;
+    font-size: 1.5rem;
+    font-family: "EB Garamond", serif;
+    color: #333;
+    cursor: pointer;
+    text-indent: 1px;
+    text-overflow: "";
+  }
+  
+  .select option {
+    cursor: pointer;
+  }
+  
+  .boxSelect {
+    position: relative;
+  }
+  
+  .arrowDown {
+    position: absolute;
+    top: 1.6rem;
+    right: 2rem;
+    z-index: -999;
+  }
+  
+  .arrowDown svg {
+    font-size: 2rem;
+  }
+
+  .icon {
+    position: absolute;
+    top: 1.6rem;
+    right: 2rem;
+  }
+  
+  .icon svg {
+    font-size: 2.4rem;
+  }
+  
+  .input {
+    position: relative;
+  }
+  .title_search {
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 1rem;
+  }
+
+  .checkbox {
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    padding: 5px;
+  }
+  .content {
+    padding: 0.5rem 2rem;
+  }

@@ -1,0 +1,21 @@
+.background {
+    background-color: #1B2838;
+  }
+  .title_featured {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #fff;
+  }
+  .layout {
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+    
+  }
+  .img_slider {
+    width: 95%;
+    border-radius: 10px;
+  }
