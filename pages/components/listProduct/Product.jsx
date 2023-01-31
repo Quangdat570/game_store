@@ -100,50 +100,7 @@ function Product({ product }) {
       });
     }
   };
-  // const handleAddToCart = () => {
-  //   dispatch(addItem({ productId: product.id, quantity: 1 }));
-  // };
-
-  // const handleAddtoWishList = async () => {
-  //   // console.log(cart);
-  //   console.log(cart);
-  //   const check = cart.filter((item) => item.name === product.name);
-
-  //   console.log(check);
-
-  //   if (check.length > 0) {
-  //     const reference = doc(cartRef, check[0].id);
-  //     await updateDoc(reference, {
-  //       quantity: check[0].quantity + count,
-  //     });
-  //     toast.info(`${product.name} quanity++`, {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //       theme: "light",
-  //     });
-  //   } else {
-  //     const reference = doc(cartRef);
-  //     setDoc(reference, {
-  //       ...product,
-  //       quantity: count,
-  //     });
-  //     toast.success(`${product.name} added to wish list successfully`, {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: false,
-  //       draggable: true,
-  //       progress: undefined,
-  //       theme: "light",
-  //     });
-  //   }
-  // };
+ 
   return (
 
     <>

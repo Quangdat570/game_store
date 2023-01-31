@@ -1,4 +1,4 @@
-import { selectCart } from "../../store/features/cart/cart.slice";
+import { selectCart } from "../../store/features/cart/Cart.slice";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
 import { style } from "@mui/system";

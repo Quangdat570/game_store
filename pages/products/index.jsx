@@ -17,7 +17,7 @@ import { Box, FormGroup } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { toast, ToastContainer } from "react-toastify";
-import { selectCart } from "../../store/features/cart/cart.slice";
+import { selectCart } from "../../store/features/cart/Cart.slice";
 import HeroProducts from "../components/listProduct/HeroProducts";
 
 function Shop({ data = [], filter, url }) {

@@ -245,7 +245,7 @@ import styles from "./ProductDetail.module.css";
 
 import { style } from "@mui/system";
 import Link from "next/link";
-import { addItem } from "../../store/features/cart/cart.slice";
+import { addItem } from "../../store/features/cart/Cart.slice";
 import { ToastContainer } from "react-toastify";
 import { selectProductById } from "../../store/features/Product.slice";
 
