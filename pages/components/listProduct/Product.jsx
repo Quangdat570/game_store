@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 
 
-import { selectCart } from "../../../store/features/cart/Cart.slice";
-import { addItem } from "../../../store/features/cart/Cart.slice";
 // import ButtonBlack from "../componnet/ButtonBlack";
 import React from "react";
 import "react-toastify/dist/ReactToastify.css";
