@@ -22,6 +22,10 @@ import {
   useTheme,
 } from "@mui/material";
 import PersonIcon from '@mui/icons-material/Person';
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from "next/router";
+
 
 
 import Box from '@mui/material/Box';
@@ -52,6 +56,7 @@ export default function Header() {
   const user = useSelector(selectUser);
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
+  const router = useRouter();
 
   useEffect(() => {
       auth.onAuthStateChanged((auth, error) => {
@@ -209,7 +214,7 @@ export default function Header() {
                                     // >
                                     //     Signin
                                     // </Button>
-                                    <div onClick={() => {
+                                    <Button onClick={() => {
                                       signInWithPopup(auth, provider)
                                         .then(() => {
                                           if (auth.currentUser) {
@@ -227,13 +232,14 @@ export default function Header() {
                                           }
                                         })
                                         .catch((err) => console.error(err));
-                                    }} >Đăng nhập</div>
+                                    }} >Đăng nhập</Button>
                                 ) : (
                                     <div>
                                         {auth.currentUser.displayName}{" "}
                                         <Button onClick={() => auth.signOut()}>
                                             Đăng xuất
                                         </Button>
+                                        <ToastContainer/>
                                     </div>
                                 )}
            
