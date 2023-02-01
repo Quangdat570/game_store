@@ -1,5 +1,10 @@
 
-import { IoIosArrowForward} from 'react-icons/io'
+import { IoIosArrowForward, IoMdTime} from 'react-icons/io'
+import { FaMoneyCheckAlt } from 'react-icons/fa'
+import { AiFillTags, AiOutlineShareAlt } from 'react-icons/ai'
+import { RiComputerLine } from 'react-icons/ri'
+import { BsFlagFill, BsFillShareFill} from 'react-icons/bs'
+
 
 
 import React from "react";
@@ -14,6 +19,7 @@ import Link from "next/link";
 import { addItem } from "../../store/features/cart/cart.slice";
 import { ToastContainer } from "react-toastify";
 import { selectProductById } from "../../store/features/Product.slice";
+
 
 import {
   collection,
@@ -137,7 +143,7 @@ const ItemDetail = ({ data }) => {
                <div className={styles.title_breadcump}>GAMES</div>
                <div className={styles.acb}>Cloux 
                  <span><IoIosArrowForward/></span> 
-                <span className={styles.name}>{data.name}</span>
+                <span className={styles.name_header}>{data.name}</span>
                 </div>
              </div>
          </Container>
@@ -147,50 +153,70 @@ const ItemDetail = ({ data }) => {
           </div>
           <Container>
               <Row className={styles.mtT80}>
-                <div  className="p-0 d-flex">
-                  <div className='col-12 col-md-6 d-flex justify-content-center' key={data.id}>
-                   <img src={data.image} alt=""  className={styles.img}/>
+                
+                  <div className='col-12 col-md-8 d-flex justify-content-center' key={data.id}>
+                   <img src='../../products/dev.jpg' alt=""  className={styles.img}/>
               
                   </div>
-                  <div className="col-12 col-md-6 d-flex justify-content-center">
-                  <div>
-                      <div className="">
+                  <div className="col-12 col-md-4 d-flex justify-content-center flex-column ps-5 pe-5">
+                      
                         <h1 className={styles.name}>{data.name}</h1>
-                        <h2 className={styles.price}>${data.price}</h2>
+                        <div className=''>
+                          <span className={styles.icon_price}><FaMoneyCheckAlt/></span>
+                          <span className={styles.price}>${data.price}</span>
+                          </div>
               
-                        <div className={styles.flex}>
-                          <div className={styles.p}>
+                        <div >
+
+                        <div className={styles.magrin}>
+                          <span className={styles.icon_cate}><AiFillTags/></span>
+                          <span className={styles.title_cate}>{data.categories}</span>
+                        </div>
+
+                        <div className={styles.magrin}>
+                          <span className={styles.icon_cate}><IoMdTime/></span>
+                          <span className={styles.title_cate}>August 15, 2017</span>
+                        </div>
+
+                        <div className={styles.magrin}>
+                          <span className={styles.icon_cate}><RiComputerLine/></span>
+                          <span className={styles.title_cate}>SteamUplay</span>
+                        </div>
+                          {/* <div className={styles.p}>
                             <p onClick={countDown}>-</p>
                             <p>{quantity}</p>
                             <p onClick={countUp}>+</p>
-                          </div>
-                          <div className=""  onClick={() => handleAddtoCart(data)}>
-                            <Button >Add</Button>
+                          </div> */}
+                          <div  onClick={() => handleAddtoCart(data)}>
+                            <div className={styles.button_add} >Add to cart</div>
                             <ToastContainer/>
                           </div>
                            
                         </div>
-                        <h3 className={styles.h3}>
-                          CATEGORY : <i className={styles.cate}>{data.category}</i>{" "}
-                        </h3>
-                        <h3 className={styles.tag}>
-                          TAGS :{"  "}
-                          <i className={styles.cate}>
-                            Furnishing, Hand made, Utilities
-                          </i>
-                        </h3>
-                        <h3 className={styles.social}>
-                          SHARE :{" "}
-                          <i className={styles.link}>
-                            <Link href="#">FB</Link>
-                            <Link href="#">TW</Link>
-                            <Link href="#">PIN</Link>
-                          </i>
-                        </h3>
-                      </div>
+                       
+                        
+                        <div className='d-flex justify-content-between'>
+                          <div className={styles.lay}>
+                            <div className={styles.icon_share}><BsFillShareFill/></div>
+                            <div className={styles.title_share}>Share</div>
+                          </div>
+                          <div className={styles.lay}>
+                            <span className={styles.icon_share}><BsFlagFill/></span>
+                            <span className={styles.title_share}>Report</span>
+                          </div>
+                        </div>
+                      
+                  
+                  </div>
+
+                  <div className='col-12 col-md-8'>
+                    <div className={styles.content_product}>
+                      
+                        Welcome to Yara, a tropical paradise frozen in time. As the dictator of Yara, Antón Castillo is intent on restoring his nation to its former glory by any means necessary, with his son, Diego, following in his bloody footsteps. Their oppressive rule has ignited a revolution. Play as Dani Rojas, a local Yaran, as you fight alongside a modern-day guerrilla revolution to liberate Yara. Play the full game solo or with a friend in co-op. Explore jungles, beaches, and cities on foot, horseback, or in a wide variety of vehicles including boats and Jet Skis as you fight against Castillo’s regime in the most expansive Far Cry to date. Feel the thrill of combat with an arsenal of hundreds of weapons alongside helpful amigos like Chorizo the dog and Guapo the gator. Enjoy all-new content and features added since launch, including four new special operations, free blockbuster crossover missions, and fan-requested updates such as New Game Plus, Completionist Aid, an extra-hard difficulty mode, and four new loadout slots. There has never been a better time to join millions of players in Yara!
+
                     </div>
                   </div>
-                </div>
+                
               </Row>
           </Container>
         </Container>

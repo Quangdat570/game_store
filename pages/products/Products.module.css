@@ -132,3 +132,28 @@ font-size: 18px;
 .view {
   position: relative;
 }
+
+
+.pagination {
+  display: flex;
+  margin-top: 2.4rem;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.pagination li a,
+.pagination li span {
+  font-size: 1.2rem;
+  margin: 0 1rem;
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 7px;
+}
+.pagination li {
+  border-radius: 10px;
+}
+
+.pagination p:hover {
+  background-color: #dadada;
+}
