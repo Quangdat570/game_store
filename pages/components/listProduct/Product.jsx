@@ -102,7 +102,6 @@
 // }
 
 // export default Product;
-
 import React from 'react'
 
 const Product = () => {

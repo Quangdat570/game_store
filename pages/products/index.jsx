@@ -170,7 +170,31 @@ function Shop({ data = [], filter, url }) {
               <Row>
                 {products.map((product, index) => (
                   <Col lg={4} key={index} className={styles.product}>
-                    <Product product={product} />
+                    <Link
+                        className={styles.view}
+                        href={{
+                          pathname: "/products/[gid]",
+                          query: { gid: product.id },
+                        }}
+                      >
+                      <div className='m-2 position-relative'>
+                            <img src={product.image} alt="" className={styles.image} />
+                            <div className='m-2'>
+                              <div className={styles.price_sale}>
+                              <div className={styles.name_sale}>{product.name}</div>
+                                <div className='d-flex ps-2 pb-2 pe-3'>
+                                  <div className={styles.name}>-67%</div>
+                                  <div className={styles.price_vnd}>
+                                    <div>-67%</div>
+                                    <div>${product.price}</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                      
+                      </Link>
                   </Col>
                 ))}
               </Row>
