@@ -19,7 +19,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 // import required modules
 
 
-const Creator = () => {
+const Creator = ({products}) => {
     
   return (
     <>
@@ -51,24 +51,33 @@ const Creator = () => {
       
         className="mySwiper pb-5"
       >
-        <SwiperSlide>
-          <div className=' position-relative'>
-                <img src="../../../img-home/slider1.jpg" alt=""  />
-                <div className=''>
-                  <div className={styles.price_sale}>
-                  <div className={styles.name_sale}>Fan Cry</div>
-                    <div className='d-flex '>
-                      <div className={styles.name}>-67%</div>
-                      <div className={styles.price_vnd}>
-                        <div>-67%</div>
-                        <div>326,000</div>
+        {products.map((item) => (
+
+       
+          <SwiperSlide>
+            <div className=' position-relative' key={item.id}>
+            <Link href={{
+                  pathname: '/products/[gid]',
+                  query: {gid: item.id}
+                }}>
+                  <img src={item.image} alt=""  />
+                  <div className=''>
+                    <div className={styles.price_sale}>
+                    <div className={styles.name_sale}>{item.name}</div>
+                      <div className='d-flex '>
+                        <div className={styles.name}>-{item.sale}%</div>
+                        <div className={styles.price_vnd}>
+                          <div className={styles.price_save}>{item.price}</div>
+                          <div>₫ {item.price_sale}</div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
+        </Link>
+            </div>
+          </SwiperSlide>
+        ))}
+        {/* <SwiperSlide>
         <div className=' position-relative'>
                 <img src="../../../img-home/slider1.jpg" alt=""  />
                 <div className=''>
@@ -150,7 +159,7 @@ const Creator = () => {
                   </div>
                 </div>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
       
       </Swiper>
     </Container>

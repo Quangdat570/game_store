@@ -11,20 +11,42 @@ import Creator from './components/landingpage/Creator';
 import Categories from './components/landingpage/Categories';
 
 
-export default function Home() {
+export default function Home({games, products,feature, sale}) {
   return (
     <>
     
     <HeroBanner/>
-    <Trending/>
-    <Creator/>
-    <Categories />
+    <Trending sale={sale} games={games}/>
+    <Creator products={products}/>
+    <Categories feature={feature} />
     
 
     </>
   )
 }
 
+export const getStaticProps = async (ctx) => {
+ 
+
+  const res = await fetch("https://63d729ad5dbd723244211e09.mockapi.io/sale");
+  
+  const resPon = await fetch("https://63d729ad5dbd723244211e09.mockapi.io/products")
+  const resData = await resPon.json();
+
+  const data = await res.json();
+
+
+  return {
+    props: {
+      games: resData.slice(20),
+      products: resData,
+      feature: resData.slice(13,17),
+      sale: resData.slice(8,12),
+    },
+    
+  };
+  
+};
  
 
   

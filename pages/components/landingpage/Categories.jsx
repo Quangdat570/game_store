@@ -3,7 +3,7 @@ import styles from '../../../styles/home.css/categori.module.css'
 import { Container, Row, Col, Card, CardGroup } from 'react-bootstrap'
 import Link from 'next/link'
 
-const Categories = ( {categories }) => {
+const Categories = ({feature} ) => {
     
   return (
    <>
@@ -15,18 +15,25 @@ const Categories = ( {categories }) => {
             <div className="row">
                 <div className="col-12 ">
                     <div className={styles.layout}>
-                        <div className="col-12 col-md-3 pt-3">
-                            <img src="../../../img-home/slider1.jpg" alt="" className={styles.img_slider} />
+                        {feature.map((item) => (
+                        <div className="col-12 col-md-3 pt-3" key={item.id}>
+                            <Link
+                            href={{
+                                pathname: '/products/[gid]',
+                                query: {gid: item.id}                                
+                            }}><img src={item.image} alt="" className={styles.img_slider} /></Link>
                         </div>
-                        <div className="col-12 col-md-3  pt-3">
+
+                        ))}
+                        {/* <div className="col-12 col-md-3  pt-3">
                             <img src="../../../img-home/slider2.jpg" alt="" className={styles.img_slider}/>
-                        </div>
-                        <div className="col-12 col-md-3  pt-3">
+                        </div> */}
+                        {/* <div className="col-12 col-md-3  pt-3">
                             <img src="../../../img-home/slider3.jpg" alt="" className={styles.img_slider}/>
-                        </div>
-                        <div className="col-12 col-md-3  pt-3">
+                        </div> */}
+                        {/* <div className="col-12 col-md-3  pt-3">
                             <img src="../../../img-home/slider1.jpg" alt="" className={styles.img_slider}/>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

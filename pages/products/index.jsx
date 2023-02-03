@@ -183,10 +183,10 @@ function Shop({ data = [], filter, url }) {
                               <div className={styles.price_sale}>
                               <div className={styles.name_sale}>{product.name}</div>
                                 <div className='d-flex ps-2 pb-2 pe-3'>
-                                  <div className={styles.name}>-67%</div>
+                                  <div className={styles.name}>-{product.sale}%</div>
                                   <div className={styles.price_vnd}>
-                                    <div>-67%</div>
-                                    <div>${product.price}</div>
+                                    <div className={styles.price_save}>{product.price}</div>
+                                    <div>₫ {product.price_sale}</div>
                                   </div>
                                 </div>
                               </div>

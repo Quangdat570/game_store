@@ -155,7 +155,7 @@ const ItemDetail = ({ data }) => {
               <Row className={styles.mtT80}>
                 
                   <div className='col-12 col-md-8 d-flex justify-content-center' key={data.id}>
-                   <img src='../../products/dev.jpg' alt=""  className={styles.img}/>
+                   <img src={data.description} alt=""  className={styles.img}/>
               
                   </div>
                   <div className="col-12 col-md-4 d-flex justify-content-center flex-column ps-5 pe-5">
@@ -209,11 +209,95 @@ const ItemDetail = ({ data }) => {
                   
                   </div>
 
-                  <div className='col-12 col-md-8'>
+                  <div className='col-12 col-md-8 '>
                     <div className={styles.content_product}>
                       
                         Welcome to Yara, a tropical paradise frozen in time. As the dictator of Yara, Antón Castillo is intent on restoring his nation to its former glory by any means necessary, with his son, Diego, following in his bloody footsteps. Their oppressive rule has ignited a revolution. Play as Dani Rojas, a local Yaran, as you fight alongside a modern-day guerrilla revolution to liberate Yara. Play the full game solo or with a friend in co-op. Explore jungles, beaches, and cities on foot, horseback, or in a wide variety of vehicles including boats and Jet Skis as you fight against Castillo’s regime in the most expansive Far Cry to date. Feel the thrill of combat with an arsenal of hundreds of weapons alongside helpful amigos like Chorizo the dog and Guapo the gator. Enjoy all-new content and features added since launch, including four new special operations, free blockbuster crossover missions, and fan-requested updates such as New Game Plus, Completionist Aid, an extra-hard difficulty mode, and four new loadout slots. There has never been a better time to join millions of players in Yara!
 
+                    </div>
+
+                    <div className='p-2'>
+                      <h3 className={styles.title_info}>SYSTEM REQUIREMENTS</h3>
+                      <Row className=' '>
+                        <div className=' col-12 col-md-6 pe-2 pt-5'>
+                          <div className={styles.header_info}>MINIMUM:</div>
+                          <div className='d-flex pt-2'>
+                            <div><span  className={styles.os}>OS: </span>
+                            <span className={styles.info}> Windows 10 (20H1 or newer) – 64 bit only</span>
+                            </div>
+                          </div>
+
+                          <div className='d-flex pt-2'>
+                            <div ><span className={styles.os}>Processor: </span>
+                            <span className={styles.info}> AMD Ryzen 3 1200 – 3.1 GHz / Intel i5-4460 – 3.2 GHz</span>
+                            </div>
+                          </div>
+
+                          <div className='d-flex pt-2'>
+                            <div ><span className={styles.os}>Memory: </span>
+                            <span className={styles.info}> 8 GB (Dual-Channel mode)</span>
+                            </div>
+                          </div>
+
+                          <div className='d-flex pt-2'>
+                            <div ><span className={styles.os}>Storage: </span>
+                            <span className={styles.info}> 60 GB HDD (SSD recommended)</span>
+                            </div>
+                          </div>
+
+                          <div className='d-flex pt-2'>
+                            <div ><span className={styles.os}>Direct X: </span>
+                            <span className={styles.info}> DirectX 12</span>
+                            </div>
+                          </div>
+
+                          <div className='d-flex pt-2'>
+                            <div ><span className={styles.os}>Graphics: </span>
+                            <span className={styles.info}> AMD RX 460 (4 GB) / Nvidia GTX 960 (4 GB)</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className=' col-12 col-md-6 pt-5'>
+                          <div  className={styles.header_info}>RECOMMENDED:</div>
+                          <div className='d-flex pt-2'>
+                            <div><span  className={styles.os}>OS: </span>
+                            <span className={styles.info}> Windows 10 (20H1 or newer) – 64 bit only</span>
+                            </div>
+                          </div>
+
+                          <div className='d-flex pt-2'>
+                            <div ><span className={styles.os}>Processor: </span>
+                            <span className={styles.info}> AMD Ryzen 5 3600X (3.8 GHz) / Intel i7-7700 (3.6 GHz) or higher</span>
+                            </div>
+                          </div>
+
+                          <div className='d-flex pt-2'>
+                            <div ><span className={styles.os}>Memory: </span>
+                            <span className={styles.info}> 16 GB (Dual-Channel mode)</span>
+                            </div>
+                          </div>
+
+                          <div className='d-flex pt-2'>
+                            <div ><span className={styles.os}>Storage: </span>
+                            <span className={styles.info}> 60 GB HDD (SDD Recommended) + 37 GB HD Textures (optional)</span>
+                            </div>
+                          </div>
+
+                          <div className='d-flex pt-2'>
+                            <div ><span className={styles.os}>Direct X: </span>
+                            <span className={styles.info}> DirectX 12</span>
+                            </div>
+                          </div>
+
+                          <div className='d-flex pt-2'>
+                            <div ><span className={styles.os}>Graphics: </span>
+                            <span className={styles.info}> AMD RX VEGA64 (8 GB) / Nvidia GTX 1080 (8 GB) or higher</span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </Row>
                     </div>
                   </div>
                 

@@ -1,0 +1,224 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+
+.bg_banner {
+    background-image: url(https://demo.gloriathemes.com/wp/cloux/wp-content/themes/cloux/include/assets/img/page-banner.jpg);
+    width: 100%;
+    
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    height: 313px;
+    position: relative;
+}
+
+.breadcump {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.title_breadcump {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 3.462rem;
+    color: #FFFFFF;
+    font-weight: 800;
+
+}
+.name_header {
+    border-bottom-color: #ffc311;
+    color: #ffc311;
+    font-family: 'Poppins', sans-serif;
+}
+
+.acb {
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+}
+
+
+
+.page {
+    background-color: white;
+    padding: 0 !important;
+    
+  }
+  
+
+  
+  .form div div input {
+    padding: 0.3rem 3.5rem;
+    font-size: 1.2rem;
+   font-family: 'DM Sans', sans-serif;
+    outline: none;
+    width: 100%;
+    border: none;
+    border: 1px solid #dadada;
+    color: #666;
+  }
+  
+  .form div label {
+   font-family: 'DM Sans', sans-serif;
+    font-size: 1.2rem;
+  }
+  
+  .form div {
+    margin-top: 1rem;
+  }
+  
+  .mT80 {
+    margin-top: 3rem;
+  }
+  
+  .mT20 {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+  
+  .note {
+   font-family: 'DM Sans', sans-serif;
+    font-size: 1.5rem;
+  }
+  
+  .right {
+    margin-top: 2rem;
+  }
+  
+  .textarea {
+    font-size: 1.5rem;
+    width: 100%;
+    border: none;
+    border: 1px solid #dadada;
+    padding: 1.5rem 3.5rem;
+    color: #666;
+   font-family: 'DM Sans', sans-serif;
+    outline: none;
+  }
+  
+  .error {
+    font-size: 1.6rem;
+    color: red;
+   font-family: 'DM Sans', sans-serif;
+  }
+  
+  .line {
+    border-bottom: 1px solid #666;
+  }
+  
+  .line div {
+    padding: 1rem 1rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  
+  .line div p {
+    margin-bottom: 0;
+  }
+  
+  .text {
+    font-size: 1.5rem;
+   font-family: 'DM Sans', sans-serif;
+    font-weight: 100;
+    text-transform: capitalize;
+  }
+  
+  .checkbox {
+    font-size: 2rem !important;
+  }
+  
+  .form-check {
+    font-size: 2rem;
+  }
+  
+  .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+   font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    padding: 1rem 0;
+  }
+  
+  .total {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 1rem 0;
+  }
+
+  /* right checkout */
+
+  .name_products {
+    margin: 0px 0px 10px;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .price_products {
+    margin: 0px 0px 10px;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Kodchasan', sans-serif;
+    color: rgb(210, 51, 105);
+  }
+  .push_products {
+    border: 1px solid rgba(210, 51, 105, 0.5);
+    color: rgb(210, 51, 105);
+    max-width: 40px;
+    max-height: 30px;
+    padding: 5px 15px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+  }
+  .img_products {
+    width: 62px;
+    height: 62px;
+    margin: auto;
+    border-radius: 10px;
+  }
+  .vip {
+    display: flex;
+  }
+  .total {
+    font-family: 'Kodchasan', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+   
+    font-weight: 700;
+  }
+  .total_price {
+    margin: 0px 0px 10px;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Kodchasan', sans-serif;
+    color: rgb(210, 51, 105);
+  }
+  .mmm {
+    padding-top: 1rem;
+  }
+  .container {
+    padding: 2rem;
+  }
+  .title_check {
+    font-size: 18px;
+    font-family: 'Kodchasan', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.00938em;
+    text-transform: capitalize;
+  }

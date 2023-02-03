@@ -90,14 +90,14 @@ export const selectCart = (state) => {
     quantity: item.quantity,
   }));
 
-  // const totalPrice = items.reduce(
-  //   (total, item) => (total += item.product.price * item.quantity),
-  //   0
-  // );
+  const totalPrice = items.reduce(
+    (total, item) => (total += item.product.price * item.quantity),
+    0
+  );
 
   return {
     items,
-    // totalPrice,
+    totalPrice,
     incQty,
     decQty,
     removeItem,

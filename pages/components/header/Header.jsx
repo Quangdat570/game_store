@@ -188,7 +188,7 @@ export default function Header() {
                 <Link href='/' className={styles.meme} >Home</Link>
               </li>
               <li >
-                <Link href='' className={styles.meme}>About</Link>
+                <Link href='/about' className={styles.meme}>About</Link>
               </li>
               <li >
                 <Link href='/products' className={styles.meme}>Games</Link>

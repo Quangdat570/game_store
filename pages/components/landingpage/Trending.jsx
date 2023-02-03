@@ -5,7 +5,9 @@ import Link from 'next/link'
 import { IoRocketOutline } from 'react-icons/io5'
 import Carousel from 'react-bootstrap/Carousel';
 
-const Trending = () => {
+const Trending = ({sale,games}) => {
+  
+  
   return (
     <Container fluid className={styles.background}>
     <div className='container pt-5 pb-5'>
@@ -15,47 +17,45 @@ const Trending = () => {
             
         </div>
         <div className='col-12 col-md-6 p-2'>
-          <img src="../../../img-home/topsale.jpg" alt="" className='w-100 h-100' />
+          {games.map((products) => (
+
+          <Link href={{
+            pathname:'/products/[gid]',
+            query: {gid: products.id}
+          }} key={products.id}><img src={products.image} alt="" className='w-100 h-100' /></Link>
+          ))}
           
         </div>
         <div className='col-12 col-md-6 d-flex flex-wrap'>
-          <div className='col-12 col-md-6 '>
-            <div className='m-2 position-relative'>
-              <img src="../../../img-home/topsale1.jpg" alt="" className='w-100' />
-              <div className='m-2'>
-                <div className={styles.price_sale}>
-                <div className={styles.name_sale}>Fan Cry</div>
-                  <div className='d-flex '>
-                    <div className={styles.name}>-67%</div>
-                    <div className={styles.price_vnd}>
-                      <div>-67%</div>
-                      <div>326,000</div>
+          {sale.map((item) => (
+          
+            <div className='col-12 col-md-6 '>
+              <Link href={{
+                pathname:'/products/[gid]',
+                query: {gid: item.id }
+              }} key={item.id}>
+                <div className='m-2 position-relative'>
+                  <img src={item.image} alt="" className='w-100' />
+                  <div className='m-2'>
+                    <div className={styles.price_sale}>
+                    <div className={styles.name_sale}>{item.name}</div>
+                      <div className='d-flex '>
+                        <div className={styles.name}>-{item.sale}%</div>
+                        <div className={styles.price_vnd}>
+                          <div className={styles.price_save}>{item.price}</div>
+                          <div>₫ {item.price_sale}</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
-          </div>
+          
 
-          <div className='col-12 col-md-6 '>
-            <div className='m-2 position-relative'>
-              <img src="../../../img-home/topsale1.jpg" alt="" className='w-100' />
-              <div className='m-2'>
-                <div className={styles.price_sale}>
-                <div className={styles.name_sale}>Fan Cry</div>
-                  <div className='d-flex '>
-                    <div className={styles.name}>-67%</div>
-                    <div className={styles.price_vnd}>
-                      <div>-67%</div>
-                      <div>326,000</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
 
-          <div className='col-12 col-md-6 '>
+          {/* <div className='col-12 col-md-6 '>
             <div className='m-2 position-relative'>
               <img src="../../../img-home/topsale1.jpg" alt="" className='w-100' />
               <div className='m-2'>
@@ -71,9 +71,9 @@ const Trending = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className='col-12 col-md-6 '>
+          {/* <div className='col-12 col-md-6 '>
             <div className='m-2 position-relative'>
               <img src="../../../img-home/topsale1.jpg" alt="" className='w-100' />
               <div className='m-2'>
@@ -89,7 +89,25 @@ const Trending = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
+
+          {/* <div className='col-12 col-md-6 '>
+            <div className='m-2 position-relative'>
+              <img src="../../../img-home/topsale1.jpg" alt="" className='w-100' />
+              <div className='m-2'>
+                <div className={styles.price_sale}>
+                <div className={styles.name_sale}>Fan Cry</div>
+                  <div className='d-flex '>
+                    <div className={styles.name}>-67%</div>
+                    <div className={styles.price_vnd}>
+                      <div>-67%</div>
+                      <div>326,000</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> */}
 
           
 
@@ -105,3 +123,4 @@ const Trending = () => {
 }
 
 export default Trending
+
