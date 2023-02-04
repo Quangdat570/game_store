@@ -155,5 +155,6 @@ import {
       filtersSort,
       filtersSearch,
       searchByName,
+      saleProducts: state.products,
     };
   };
