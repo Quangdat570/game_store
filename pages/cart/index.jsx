@@ -126,180 +126,144 @@ function Cart() {
     <Container fluid >
       <section >
         <Container>
-          {/* {auth.currentUser && carts.length === 0 ? (
-            <div></div>
-          ) : (
-            <Row className={styles.line}>
-              <Col lg={2} xs={1}>
-                <p></p>
-              </Col>
-              <Col lg={5} xs={7}>
-                <p className={styles.th}>PRODUCT</p>
-              </Col>
+         
 
-              <Col lg={1} className={styles.none}>
-                <p className={styles.th}>PRICE</p>
-              </Col>
-
-              <Col lg={2} xs={3}>
-                <p className={styles.th}>QUANTITY</p>
-              </Col>
-
-              <Col lg={2} className={styles.none}>
-                <p className={styles.th}>SUBTOTAL</p>
-              </Col>
-            </Row>
-            
-            
-          )} */}
-
-          {auth.currentUser && carts.length === 0 ? (
-            <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginBottom: "30px", paddingBottom:'5rem', paddingTop:'5rem'}}>
-              <ProductionQuantityLimitsIcon sx={{fontSize:'200px', textAlign:'center'}}/>
-              <Typography sx={{
-                    fontSize: "30px",
-                    fontWeight: "700",
-                    fontFamily: "'Kodchasan', sans-serif",
-                    marginBottom: "20px",
-                  }}>No Item In Cart</Typography>
-              <Typography sx={{
-                    fontSize: "18px",
-                    fontWeight: "400",
-                    fontFamily: "'Kodchasan', sans-serif",
-                    marginBottom: "20px",
-                  }}>Add items you want to shop</Typography>
-            <Link href="/products">
-              <Button variant="contained">Start Shopping</Button>
-            </Link>
-            </Box>
-          ) : (
-            <Container>
-              <div className="row">
-                <div className="col-12 col-md-8">
-                  {carts.map((item) => (
-                   <Container className={styles.container}>
-                      <div className=" row">
-                        <div className="col-12">
-                          <div className="col-12 d-md-flex  border position-relative">
-                            <div className="col-12 col-md-6 d-flex justify-content-center">
-                            <img src={item.image} alt="" className={styles.img_products} />
-                            </div>
-                            <div className="col-12 col-md-6 p-4">
-                            <div className={styles.name_products}>{item.name}</div>
-                                <div className={styles.price_products}>${item.price}</div>
-                                <div className={styles.vip}>
-                                  <div className={styles.push_products}
-                                   onClick={() => {
-                                        decrementCart(item.id, item.quantity);
-                                      }}>-</div>
-                                  <div className={styles.push_products}>{item.quantity}</div>
-                                  <div className={styles.push_products}
-                                   onClick={() => {
-                                        incrementCart(item.id, item.quantity);
-                                      }}>+</div>
-                                </div>
-                                <div className={styles.mmm}>
-                                  <span className={styles.total}>total: </span>
-                                <span className={styles.total_price}>${(item.price * 1 * item.quantity).toFixed(1)}</span>
-                                </div>
-                            </div>
-                            <div className={styles.close} onClick={handleOpen}>
-                                <AiOutlineClose/>
-                            </div>
-                              <Box >
-                                    <Modal
-                                      open={open}
-                                      onClose={handleClose}
-                                      aria-labelledby="modal-modal-title"
-                                      aria-describedby="modal-modal-description"
-                                    >
-                                      <Box sx={{position: 'absolute',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                                width: 400,
-                                bgcolor: 'background.paper',
-                                border: '2px solid #000',
-                                boxShadow: 24,
-                                p: 4,}}>
-                                        <Typography id="modal-modal-title" variant="h6" component="h2">
-                                          Text in a modal
-                                        </Typography>
-                                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                                        </Typography>
-                                        <Box sx={{textAlign:'center', display:'flex', gap:'5px', justifyContent:'center'}}>
-                                          <Button sx={{textAlign:'center'}}
-                                          onClick={() => {
-                                            handleRemoveItem(item.id);
-                                          }} variant="outlined">Delete</Button>
-                                          <Button onClick={handleClose} variant="contained">Close</Button>
-                                        </Box>
-                                      </Box>
-                                    </Modal>
-                              </Box>
-                  
-                          </div>
-                  
-                  
-                        </div>
-                  
-                      </div>
-                    </Container>
-                  ))}
-                </div>
-                    <div className="col-12 col-md-4 pt-5">
-                      <Box>
-                        <Typography  sx={{
-                        fontFamily: "'Kodchasan', sans-serif",
-                        fontSize: "18px",
-                        marginBottom: "15px",
-                      }}>
-                         Special instructions for seller
-                        </Typography>
-                        <TextField
-                      placeholder="Special instructions for seller"
-                      multiline
-                      rows={4}
-                      maxRows={8}
-                      fullWidth="100%"
-                    />
-                    <Typography
-                      sx={{
-                        fontFamily: "'Kodchasan', sans-serif",
-                        fontSize: "18px",
-                        margin: "15px 0",
-                        fontStyle: "italic",
-                      }}
-                    >
-                      Shipping, taxes, and discounts will be calculated at
-                      checkout.
-                    </Typography>
-                    <Link href="/checkout">
-                      <Button variant="contained" sx={{ width: "100%" }}>
-                        Proceed to Checkout
-                      </Button>
-                    </Link>
-                      </Box>
-                    </div>
-              </div>
-            </Container>
-          )}
-
-          
-
-          
-
-          {auth.currentUser && carts.length === 0 ? (
-            <div></div>
-          ) : (
-            <Container className={styles.button_return}>
-              <Link href="/products" >
-              <Button variant="contained" sx={{marginTop:'30px'}}>Start Shopping</Button>
-                        </Link>
-            </Container>
-          )}
+         
         </Container>
+
+        {auth.currentUser && carts.length !==0 ? (
+          <Container>
+          <div className="row">
+            <div className="col-12 col-md-8">
+              {carts.map((item) => (
+               <Container className={styles.container}>
+                  <div className=" row">
+                    <div className="col-12">
+                      <div className="col-12 d-md-flex  border position-relative">
+                        <div className="col-12 col-md-6 d-flex justify-content-center">
+                        <img src={item.image} alt="" className={styles.img_products} />
+                        </div>
+                        <div className="col-12 col-md-6 p-4">
+                        <div className={styles.name_products}>{item.name}</div>
+                            <div className={styles.price_products}>${item.price}</div>
+                            <div className={styles.vip}>
+                              <div className={styles.push_products}
+                               onClick={() => {
+                                    decrementCart(item.id, item.quantity);
+                                  }}>-</div>
+                              <div className={styles.push_products}>{item.quantity}</div>
+                              <div className={styles.push_products}
+                               onClick={() => {
+                                    incrementCart(item.id, item.quantity);
+                                  }}>+</div>
+                            </div>
+                            <div className={styles.mmm}>
+                              <span className={styles.total}>total: </span>
+                            <span className={styles.total_price}>${(item.price  * item.quantity)}</span>
+                            </div>
+                            
+                        </div>
+                        <div className={styles.close} onClick={handleOpen}>
+                            <AiOutlineClose/>
+                        </div>
+                          <Box >
+                                <Modal
+                                  open={open}
+                                  onClose={handleClose}
+                                  aria-labelledby="modal-modal-title"
+                                  aria-describedby="modal-modal-description"
+                                >
+                                  <Box sx={{position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            width: 400,
+                            bgcolor: 'background.paper',
+                            border: '2px solid #000',
+                            boxShadow: 24,
+                            p: 4,}}>
+                                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                                      Text in a modal
+                                    </Typography>
+                                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                                      Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                                    </Typography>
+                                    <Box sx={{textAlign:'center', display:'flex', gap:'5px', justifyContent:'center'}}>
+                                      <Button sx={{textAlign:'center'}}
+                                      onClick={() => {
+                                        handleRemoveItem(item.id);
+                                      }} variant="outlined">Delete</Button>
+                                      <Button onClick={handleClose} variant="contained">Close</Button>
+                                    </Box>
+                                  </Box>
+                                </Modal>
+                          </Box>
+              
+                      </div>
+              
+              
+                    </div>
+              
+                  </div>
+                </Container>
+              ))}
+            </div>
+                <div className="col-12 col-md-4 pt-5">
+                  <Box>
+                    <Typography  sx={{
+                    fontFamily: "'Kodchasan', sans-serif",
+                    fontSize: "18px",
+                    marginBottom: "15px",
+                  }}>
+                     Special instructions for seller
+                    </Typography>
+                    <TextField
+                  placeholder="Special instructions for seller"
+                  multiline
+                  rows={4}
+                  maxRows={8}
+                  fullWidth="100%"
+                />
+                <Typography
+                  sx={{
+                    fontFamily: "'Kodchasan', sans-serif",
+                    fontSize: "18px",
+                    margin: "15px 0",
+                    fontStyle: "italic",
+                  }}
+                >
+                  Shipping, taxes, and discounts will be calculated at
+                  checkout.
+                </Typography>
+                <Link href="/checkout">
+                  <Button variant="contained" sx={{ width: "100%" }}>
+                    Proceed to Checkout
+                  </Button>
+                </Link>
+                  </Box>
+                </div>
+          </div>
+        </Container>
+        ) : (
+          <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginBottom: "30px", paddingBottom:'5rem', paddingTop:'5rem'}}>
+          <ProductionQuantityLimitsIcon sx={{fontSize:'200px', textAlign:'center'}}/>
+          <Typography sx={{
+                fontSize: "30px",
+                fontWeight: "700",
+                fontFamily: "'Kodchasan', sans-serif",
+                marginBottom: "20px",
+              }}>No Item In Cart</Typography>
+          <Typography sx={{
+                fontSize: "18px",
+                fontWeight: "400",
+                fontFamily: "'Kodchasan', sans-serif",
+                marginBottom: "20px",
+              }}>Add items you want to shop</Typography>
+        <Link href="/products">
+          <Button variant="contained">Start Shopping</Button>
+        </Link>
+        </Box>
+        )}
       </section>
     </Container>
 

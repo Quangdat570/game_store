@@ -25,6 +25,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/router";
+import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
+
 
 
 
@@ -47,6 +49,14 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from '../../../lib/firebase'
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, setUser } from "../../../store/auth.slice";
+import {
+  getFirestore,
+  collection,
+  onSnapshot,
+  query,
+} from "firebase/firestore";
+
+import { loadProduct } from '../../../store/features/Product.slice'
 
 
 export default function Header() {
@@ -75,8 +85,32 @@ export default function Header() {
       });
   }, []);
 
+  React.useEffect(() => {
+    dispatch(loadProduct({ productId: 1 }));
+  }, []);
+
+
+  const [carts, setCart] = React.useState([]);
+
+  const cartRef = collection(getFirestore(app), "store");
+  React.useEffect(() => {
+    const q = query(cartRef);
+    const cartlist = onSnapshot(q, (querySnapshot) => {
+      let data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ ...doc.data(), id: doc.id });
+      });
+      setCart(data.filter((item) => item.uid == (user && user.uid)));
+    });
+
+    return () => cartlist();
+  }, [user == null ? null : user.uid]);
+
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorAuth, setanchorAuth] = useState(null);
+
+  
+  
 
   function handleClose() {
     setAnchorEl(null);
@@ -232,23 +266,102 @@ export default function Header() {
                                           }
                                         })
                                         .catch((err) => console.error(err));
-                                    }} >Đăng nhập</Button>
+                                    }} >Login</Button>
                                 ) : (
-                                    <div>
-                                        {auth.currentUser.displayName}{" "}
-                                        <Button onClick={() => auth.signOut()}>
-                                            Đăng xuất
-                                        </Button>
-                                        <ToastContainer/>
-                                    </div>
+                                    // <div>
+                                    //     {auth.currentUser.displayName}{" "}
+                                    //     <Button onClick={() => auth.signOut()}>
+                                    //         Đăng xuất
+                                    //     </Button>
+                                    //     <ToastContainer/>
+                                    // </div>
+                                    <Box>
+                      <IconButton
+                        aria-describedby={auth}
+                        onClick={handleClickModalAuth}
+                        sx={{ position: "relative" }}
+                      >
+                        <PersonIcon sx={{fontSize:'25px'}} />
+                        <Popover
+                          id={idAuth}
+                          open={openAuth}
+                          anchorEl={anchorAuth}
+                          onClose={handleCloseModalAuth}
+                          anchorOrigin={{
+                            vertical: "bottom",
+                            horizontal: "left",
+                          }}
+                          transformOrigin={{
+                            vertical: "top",
+                            horizontal: "left",
+                          }}
+                          sx={{
+                            position: "absolute",
+                            top: "14px",
+                            left: "-70px",
+                          }}
+                        >
+                          <Stack>
+                            <Link
+                              href=""
+                              className={styles.under}
+                              
+                            >
+                              <Button sx={{color:'#000', borderBottom:'1px solid #727272'}}>{auth.currentUser.displayName}</Button>
+                            </Link>
+
+                            <Button
+                            sx={{color:'#000'}}
+                              // variant="contained"
+                              onClick={() => auth.signOut()}
+                            >
+                              Log out
+                            </Button>
+                          </Stack>
+                        </Popover>
+                      </IconButton>
+                    </Box>
                                 )}
            
           </div>
-          <div count={0} className={styles.iconCart}>
-          <Link href='/cart' className="link">
-            <AiOutlineShoppingCart className={styles.cart}/>
-           </Link>
+
+          <div className={styles.p8}>
+            {auth.currentUser && carts.length === 0 ? (
+                <div className={styles.iconCart} count={0}>
+                  <Link href="/cart" className="link">
+                    <ShoppingCartTwoToneIcon className={styles.cart} />
+                  </Link>
+                </div>
+              ) : (
+                <>
+                  {" "}
+                  <div className={styles.iconCart} count={carts.length}>
+                    <Link href="/cart" className="link">
+                      <ShoppingCartTwoToneIcon className={styles.cart} />
+                    </Link>
+                  </div>
+                </>
+              )}
           </div>
+          {/* <Stack sx={{padding:'8px'}}>
+                  <Link href="/cart">
+                   <Badge
+                     badgeContent={carts.reduce(
+                       (total, cur) => (total += cur.quantity),
+                       0
+                     )}
+                     color="secondary"
+                   >
+                     <ShoppingCartOutlinedIcon sx={{ color: "#757575" }} />
+                   </Badge>
+                 </Link>
+                 
+
+          </Stack> */}
+          {/* <Link href='/cart' className="link">
+            <AiOutlineShoppingCart className={styles.cart}/>
+           </Link> */}
+          
           
         </div>
       </div>
