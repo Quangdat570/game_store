@@ -11,7 +11,7 @@ const index = () => {
                <div className={styles.title_breadcump}>GAMES</div>
                <div className={styles.acb}>Cloux 
                  <span><IoIosArrowForward/></span> 
-                <span className={styles.name_header}>Faq</span>
+                <span className={styles.name_header}>Esport</span>
                 </div>
              </div>
          </Container>

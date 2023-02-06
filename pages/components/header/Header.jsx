@@ -7,7 +7,7 @@ import {
   AppBar,
   Badge,
   Popover,
-  
+  Drawer,
  
   IconButton,
   Input,
@@ -26,6 +26,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/router";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
+import MenuIcon from "@mui/icons-material/Menu";
 
 
 
@@ -62,6 +63,8 @@ import { loadProduct } from '../../../store/features/Product.slice'
 
 export default function Header() {
   const logSuccess = () => toast.success("Login successfully");
+
+  const [openMenu, setOpenMenu] = useState(false);
 
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
@@ -154,59 +157,81 @@ export default function Header() {
     setState({ ...state, [anchor]: open });
   };
 
-  const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        {['Home', 'About', 'Games', 'Faq'].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{borderBottom:"1px solid #929292"}}>
-            <ListItemButton>
-              {/* <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon> */}
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      {/* <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
-    </Box>
-  );
+
 
   return (
     <>
     <div className={styles.background}>
        <div className='d-flex justify-content-around pt-3 pb-3 align-items-center'>
     <div className='d-block d-md-none'>
-      {['left'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <div className={styles.btn_nav} onClick={toggleDrawer(anchor, true)}><AiOutlineMenu/></div>
-          <SwipeableDrawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
-          >
-            {list(anchor)}
-          </SwipeableDrawer>
-        </React.Fragment>
-      ))}
+     
+
+      <Drawer open={openMenu} onClose={() => setOpenMenu(false)}>
+        <List>
+          
+          <Link href="/" className={styles.underline}>
+            <ListItemButton
+              sx={{ padding: "8px 150px 8px 50px", borderBottom:"1px solid #727272" }}
+              className={styles["link-button"]}
+              onClick={() => setOpenMenu(!openMenu)}
+            >
+              <ListItemText className={styles["link-text"]} >Home</ListItemText>
+            </ListItemButton>
+          </Link>
+
+          <Link href="/about" className={styles.underline}>
+            <ListItemButton
+              sx={{ padding: "4px 150px 4px 50px", borderBottom:"1px solid #727272" }}
+              className={styles["link-button"]}
+              onClick={() => setOpenMenu(!openMenu)}
+            >
+              <ListItemText className={styles["link-text"]}>
+                About
+              </ListItemText>
+            </ListItemButton>
+          </Link>
+
+          <Link href="/products" className={styles.underline}>
+            <ListItemButton
+              sx={{ padding: "4px 150px 4px 50px", borderBottom:"1px solid #727272" }}
+              className={styles["link-button"]}
+              onClick={() => setOpenMenu(!openMenu)}
+            >
+              <ListItemText className={styles["link-text"]}>
+                Games
+              </ListItemText>
+            </ListItemButton>
+          </Link>
+
+          
+
+          <Link href="/faq" className={styles.underline}>
+            <ListItemButton
+              sx={{
+                padding: "4px 150px 4px 50px", borderBottom:"1px solid #727272"
+              }}
+              className={styles["link-button"]}
+              onClick={() => setOpenMenu(!openMenu)}
+            >
+              <ListItemText className={styles["link-text"]}>Esport</ListItemText>
+            </ListItemButton>
+          </Link>
+
+          
+
+          
+
+         
+        </List>
+      </Drawer>
+
+      <IconButton
+        sx={{ marginLeft: "auto" }}
+        onClick={() => setOpenMenu(!openMenu)}
+      >
+        <MenuIcon sx={{color:"#fff"}} />
+      </IconButton>
+    
 
 
     </div>
@@ -229,7 +254,7 @@ export default function Header() {
                 <Link href='/products' className={styles.meme}>Games</Link>
               </li>
               <li >
-                <Link href='/faq' className={styles.meme}>Faq</Link>
+                <Link href='/faq' className={styles.meme}>Esport</Link>
               </li>
             </div>
           </div>

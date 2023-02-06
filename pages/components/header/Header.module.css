@@ -119,5 +119,10 @@
     font-family: 'DM Sans', sans-serif;
     font-weight: 500;
 }
+.underline {
+    text-decoration: none;
+    color: #000;
+    
+}
 
 
