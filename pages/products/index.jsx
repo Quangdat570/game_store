@@ -177,7 +177,7 @@ function Shop({ data = [], filter, url }) {
                           query: { gid: product.id },
                         }}
                       >
-                      <div className='m-2 position-relative'>
+                      <div className={styles.mema}>
                             <img src={product.image} alt="" className={styles.image} />
                             <div className='m-2'>
                               <div className={styles.price_sale}>

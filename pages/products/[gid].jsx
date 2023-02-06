@@ -163,7 +163,7 @@ const ItemDetail = ({ data }) => {
                         <h1 className={styles.name}>{data.name}</h1>
                         <div className=''>
                           <span className={styles.icon_price}><FaMoneyCheckAlt/></span>
-                          <span className={styles.price}>${data.price}</span>
+                          <span className={styles.price}>₫ {data.price_sale}</span>
                           </div>
               
                         <div >

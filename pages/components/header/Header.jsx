@@ -41,6 +41,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import HomeIcon from '@mui/icons-material/Home';
 
 
 import { AiOutlineMenu } from 'react-icons/ai'
@@ -161,12 +162,12 @@ export default function Header() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Home', 'About', 'Games', 'Contact'].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        {['Home', 'About', 'Games', 'Faq'].map((text, index) => (
+          <ListItem key={text} disablePadding sx={{borderBottom:"1px solid #929292"}}>
             <ListItemButton>
-              <ListItemIcon>
+              {/* <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
+              </ListItemIcon> */}
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
@@ -228,60 +229,25 @@ export default function Header() {
                 <Link href='/products' className={styles.meme}>Games</Link>
               </li>
               <li >
-                <Link href='' className={styles.meme}>Contact</Link>
+                <Link href='/faq' className={styles.meme}>Faq</Link>
               </li>
             </div>
           </div>
         </div>
-        <div className='search d-flex '>
+        <div className='search d-flex align-items-center'>
           <div>
           {!auth.currentUser ? (
-                                    // <Button
-                                    //     onClick={() => {
-                                    //         signInWithPopup(
-                                    //             auth,
-                                    //             provider
-                                    //         ).catch((err) => {
-                                    //             console.error(err);
-                                    //         });
-                                    //     }}
-                                    // >
-                                    //     Signin
-                                    // </Button>
-                                    <Button onClick={() => {
-                                      signInWithPopup(auth, provider)
-                                        .then(() => {
-                                          if (auth.currentUser) {
-                                            toast.success(`Login successfully`, {
-                                              position: "top-right",
-                                              autoClose: 5000,
-                                              hideProgressBar: false,
-                                              closeOnClick: true,
-                                              pauseOnHover: true,
-                                              draggable: true,
-                                              progress: undefined,
-                                              theme: "light",
-                                            });
-                                            router.push("/");
-                                          }
-                                        })
-                                        .catch((err) => console.error(err));
-                                    }} >Login</Button>
+                                  
+                                    <Link href='/login'><button className={styles.button_login}>Login</button></Link>
                                 ) : (
-                                    // <div>
-                                    //     {auth.currentUser.displayName}{" "}
-                                    //     <Button onClick={() => auth.signOut()}>
-                                    //         Đăng xuất
-                                    //     </Button>
-                                    //     <ToastContainer/>
-                                    // </div>
+                                 
                                     <Box>
                       <IconButton
                         aria-describedby={auth}
                         onClick={handleClickModalAuth}
                         sx={{ position: "relative" }}
                       >
-                        <PersonIcon sx={{fontSize:'25px'}} />
+                        <PersonIcon sx={{fontSize:'25px', color:"#fff"}} />
                         <Popover
                           id={idAuth}
                           open={openAuth}
@@ -343,24 +309,6 @@ export default function Header() {
                 </>
               )}
           </div>
-          {/* <Stack sx={{padding:'8px'}}>
-                  <Link href="/cart">
-                   <Badge
-                     badgeContent={carts.reduce(
-                       (total, cur) => (total += cur.quantity),
-                       0
-                     )}
-                     color="secondary"
-                   >
-                     <ShoppingCartOutlinedIcon sx={{ color: "#757575" }} />
-                   </Badge>
-                 </Link>
-                 
-
-          </Stack> */}
-          {/* <Link href='/cart' className="link">
-            <AiOutlineShoppingCart className={styles.cart}/>
-           </Link> */}
           
           
         </div>
@@ -383,55 +331,3 @@ export default function Header() {
 
 
 
-// const Header = () => {
-
- 
-  
-//   return (
-//     <>
-//     <div className={styles.background}>
-//       <div className='d-flex justify-content-around pt-3 pb-3 align-items-center'>
-//         <div className='header-logo'>
-//           <Link href='' className={styles.logo1}>
-//             CLOUD
-//             <span className={styles.logo2}>XGAME</span>
-//           </Link>
-//         </div>
-//         <div className='content d-flex  align-items-center'>
-//           <div className='menu'>
-//             <div className={styles.list_menu}>
-//               <li >
-//                 <Link href='/' className={styles.meme} >Home</Link>
-//               </li>
-//               <li >
-//                 <Link href='' className={styles.meme}>About</Link>
-//               </li>
-//               <li >
-//                 <Link href='/products' className={styles.meme}>Games</Link>
-//               </li>
-//               <li >
-//                 <Link href='' className={styles.meme}>Contact</Link>
-//               </li>
-//             </div>
-//           </div>
-//         </div>
-//         <div className='search d-flex'>
-//           <div>
-//             <Link href=''className={styles.login}>Login</Link>
-//           </div>
-          
-//         </div>
-//       </div>
-
-      
-
-//     </div>
-
-
-
-//     </>
-//   )
-  
-// }
-
-// export default Header

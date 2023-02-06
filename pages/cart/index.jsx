@@ -145,7 +145,7 @@ function Cart() {
                         </div>
                         <div className="col-12 col-md-6 p-4">
                         <div className={styles.name_products}>{item.name}</div>
-                            <div className={styles.price_products}>${item.price}</div>
+                            <div className={styles.price_products}>₫ {item.price_sale}</div>
                             <div className={styles.vip}>
                               <div className={styles.push_products}
                                onClick={() => {
@@ -159,7 +159,7 @@ function Cart() {
                             </div>
                             <div className={styles.mmm}>
                               <span className={styles.total}>total: </span>
-                            <span className={styles.total_price}>${(item.price  * item.quantity)}</span>
+                            <span className={styles.total_price}>₫ {(item.price_sale  * item.quantity).toFixed(3)}</span>
                             </div>
                             
                         </div>
@@ -179,14 +179,14 @@ function Cart() {
                             transform: 'translate(-50%, -50%)',
                             width: 400,
                             bgcolor: 'background.paper',
-                            border: '2px solid #000',
+                            border: '2px solid #727272',
                             boxShadow: 24,
                             p: 4,}}>
-                                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                                    {/* <Typography id="modal-modal-title" variant="h6" component="h2">
                                       Text in a modal
-                                    </Typography>
+                                    </Typography> */}
                                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                      Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                                    Are you sure you want to remove it from your cart?
                                     </Typography>
                                     <Box sx={{textAlign:'center', display:'flex', gap:'5px', justifyContent:'center'}}>
                                       <Button sx={{textAlign:'center'}}
@@ -208,7 +208,7 @@ function Cart() {
                 </Container>
               ))}
             </div>
-                <div className="col-12 col-md-4 pt-5">
+                <div className="col-12 col-md-4 pt-5 pb-5">
                   <Box>
                     <Typography  sx={{
                     fontFamily: "'Kodchasan', sans-serif",
@@ -236,7 +236,7 @@ function Cart() {
                   checkout.
                 </Typography>
                 <Link href="/checkout">
-                  <Button variant="contained" sx={{ width: "100%" }}>
+                  <Button variant="contained" sx={{ width: "100%"}}>
                     Proceed to Checkout
                   </Button>
                 </Link>

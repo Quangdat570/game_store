@@ -113,6 +113,44 @@ font-size: 18px;
   border-radius: 10px;
 }
 
+.maaaa {
+  position: relative;
+  margin: 8px;
+  overflow: hidden;
+}
+.maaaa:hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  opacity:1;
+}
+
+.slider {
+  position: relative;
+  
+  overflow: hidden;
+}
+.slider:hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  opacity:1;
+}
+
+.link {
+  overflow: hidden;
+}
+
+.link:hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(0.9);
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  opacity:1;
+}
+
 
 
 

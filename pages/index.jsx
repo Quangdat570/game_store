@@ -46,7 +46,7 @@ export default function Home({games, products,feature, sale}) {
                 pathname:'/products/[gid]',
                 query: {gid: item.id }
               }} key={item.id}>
-                <div className='m-2 position-relative'>
+                <div className={styles.maaaa}>
                   <img src={item.image} alt="" className='w-100' />
                   <div className='m-2'>
                     <div className={styles.price_sale}>
@@ -112,7 +112,7 @@ export default function Home({games, products,feature, sale}) {
 
        
           <SwiperSlide>
-            <div className=' position-relative' key={item.id}>
+            <div className={styles.slider} key={item.id}>
             <Link href={{
                   pathname: '/products/[gid]',
                   query: {gid: item.id}
@@ -153,7 +153,7 @@ export default function Home({games, products,feature, sale}) {
                             href={{
                                 pathname: '/products/[gid]',
                                 query: {gid: item.id}                                
-                            }}><img src={item.image} alt="" className={styles.img_slider} /></Link>
+                            }} className={styles.link}><img src={item.image} alt="" className={styles.img_slider} /></Link>
                         </div>
 
                         ))}

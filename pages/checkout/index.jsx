@@ -285,7 +285,7 @@ function CheckBox() {
                 </Col>
               </Row>
               <Box
-              sx={{paddingTop:'20px'}}
+              sx={{paddingTop:'20px', paddingBottom:"20px"}}
               ><Button variant="contained" >ORDER NOW</Button></Box>
             </form>
           </Container>
