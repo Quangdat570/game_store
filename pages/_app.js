@@ -11,9 +11,7 @@ function MyApp({ Component, pageProps }) {
   return (
 
     <Provider store={store}>
-       <Head>
-          <title>Cloux Game</title>
-        </Head>
+       
     <Layout>
       <Component {...pageProps} />
     </Layout>
