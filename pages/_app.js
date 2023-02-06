@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
 
     <Provider store={store}>
        <Head>
-          <title>Cloux Games</title>
+          <title>Cloux Game</title>
         </Head>
     <Layout>
       <Component {...pageProps} />
