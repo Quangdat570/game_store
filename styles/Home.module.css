@@ -105,9 +105,10 @@ font-size: 18px;
 .title_trending {
   font-size: 36px;
     font-weight: 700;
-    margin-bottom: 50px;
+    padding-bottom: 20px;
     text-align: center;
     color: #fff;
+    padding-top: 50px;
 }
 
 .price_save {
@@ -154,7 +155,11 @@ font-size: 18px;
   position: relative;
   
   overflow: hidden;
+  
 }
+
+
+
 .slider:hover img {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);

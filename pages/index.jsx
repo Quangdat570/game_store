@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { IoRocketOutline } from 'react-icons/io5'
 import Carousel from 'react-bootstrap/Carousel';
 import HeroBanner from './components/landingpage/HeroBanner';
+import Sales from './components/landingpage/Countdown';
 
 
 import "swiper/css";
@@ -83,6 +84,7 @@ export default function Home({games, products,feature, sale}) {
     </div>
 
   </Container>
+  <Sales/>
 
   <Container fluid className={styles.background}>
       <div className={styles.title_trending}>New and trending</div>
@@ -121,7 +123,7 @@ export default function Home({games, products,feature, sale}) {
                   pathname: '/products/[gid]',
                   query: {gid: item.id}
                 }}>
-                  <img src={item.image} alt=""  />
+                  <img src={item.image} alt="" className={styles.img_image_slider}  />
                   <div className=''>
                     <div className={styles.price_sale}>
                     <div className={styles.name_sale}>{item.name}</div>
@@ -147,7 +149,7 @@ export default function Home({games, products,feature, sale}) {
     <div className="row">
         <div className="col-12">
         <div className={styles.title_featured}>FEATURED GAMES</div>
-        <div className='container p-5'>
+        <div className='container ps-5 pe-5 pb-5 pt-2'>
             <div className="row">
                 <div className="col-12 ">
                     <div className={styles.layout}>
