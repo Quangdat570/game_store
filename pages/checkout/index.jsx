@@ -80,14 +80,8 @@ function CheckBox() {
     defaultValues: {},
   });
 
-  const city = register("city", {
+  const lastname = register("lastname", {
     required: "Please fill out this field.",
-    validate: {
-      length: (v) =>
-        (2 <= v.toLowerCase().trim().length &&
-          v.toLowerCase().trim().length <= 50) ||
-        "Please enter your city",
-    },
   });
 
   const address = register("address", {
@@ -120,13 +114,13 @@ function CheckBox() {
     },
   });
 
-  const phone = register("phone", {
-    required: "Please fill out this field.",
-    validate: {
-      isEmail: (v) =>
-        isValidPhoneNumber(v) || "Please enter your phone number.",
-    },
-  });
+  // const phone = register("phone", {
+  //   required: "Please fill out this field.",
+  //   validate: {
+  //     validateNumber: (v) =>
+  //       isValidPhoneNumber(v) || "Please enter your phone number.",
+  //   },
+  // });
 
   return (
     <>
@@ -165,7 +159,7 @@ function CheckBox() {
                       timer: 1500,
                       icon: "success",
                       width: "50rem",
-                      he,
+                      
                     });
                     const reference = collection(getFirestore(app), "checkout");
                     addDoc;
@@ -177,8 +171,8 @@ function CheckBox() {
             >
               <Row>
                 <Col lg={6}>
-                  <h2 className={styles.title_check}>Contact information</h2>
-                  <div className={styles.form}>
+                  {/* <h2 className={styles.title_check}>Contact information</h2> */}
+                  {/* <div className={styles.form}>
                     <div className="">
                       <div className="">
                         <label htmlFor="first"> Your name </label>
@@ -186,6 +180,29 @@ function CheckBox() {
                       </div>
                       <p className={styles.error}> {errors.first?.message}</p>
                     </div>
+
+                    <Box
+                        sx={{
+                          marginBottom: "20px",
+                          input: { fontFamily: "'Kodchasan', sans-serif" },
+                        }}
+                      >
+                        <TextField
+                          label="Email"
+                          variant="outlined"
+                          fullWidth
+                          {...email}
+                        />
+                        <Typography
+                          sx={{
+                            color: "red",
+                            fontFamily: "'Kodchasan', sans-serif",
+                            fontSize: "14px",
+                          }}
+                        >
+                          {errors.email?.message}
+                        </Typography>
+                      </Box>
 
                     <div className="">
                       <div className="">
@@ -259,7 +276,198 @@ function CheckBox() {
                         </div>
                       )}
                     </div>
-                  </div>
+                  </div> */}
+                  
+                  <Box
+                      sx={{
+                        marginBottom: "30px",
+                      }}
+                    >
+                      <Stack
+                        direction="row"
+                        justifyContent="space-between"
+                        sx={{
+                          marginBottom: "20px",
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            fontSize: "18px",
+                            fontWeight: "600",
+                            fontFamily: "'Kodchasan', sans-serif",
+                          }}
+                        >
+                          Contact information
+                        </Typography>
+                      </Stack>
+
+                      <Box
+                        sx={{
+                          marginBottom: "20px",
+                          input: { fontFamily: "'Kodchasan', sans-serif" },
+                        }}
+                      >
+                        <TextField
+                          label="Email"
+                          variant="outlined"
+                          fullWidth
+                          {...email}
+                        />
+                        <Typography
+                          sx={{
+                            color: "red",
+                            fontFamily: "'Kodchasan', sans-serif",
+                            fontSize: "14px",
+                          }}
+                        >
+                          {errors.email?.message}
+                        </Typography>
+                      </Box>
+
+                      <Box
+                        sx={{
+                          marginBottom: "20px",
+                          input: { fontFamily: "'Kodchasan', sans-serif" },
+                        }}
+                      >
+                        <TextField
+                          label="Phone"
+                          variant="outlined"
+                          fullWidth
+                          // {...phone}
+                          type="number"
+                          {...register("phone", {
+                            valueAsNumber: true,
+                          })}
+                        />
+                        <Typography
+                          sx={{
+                            color: "red",
+                            fontFamily: "'Kodchasan', sans-serif",
+                            fontSize: "14px",
+                          }}
+                        >
+                          {errors.phone?.message}
+                        </Typography>
+                      </Box>
+
+                      
+                      <Box>
+                      <Typography
+                        sx={{
+                          fontFamily: "'Kodchasan', sans-serif",
+                          fontSize: "14px",
+                          color: "#737373",
+                        }}
+                      >
+                        You may receive text messages related to order
+                        confirmation and shipping updates. Reply STOP to
+                        unsubscribe. Reply HELP for help. Message frequency
+                        varies. Msg & data rates may apply. View our Privacy
+                        policy and Terms of service.
+                      </Typography>
+                    </Box>
+                    <Box>
+                      <Typography
+                        sx={{
+                          marginBottom: "20px",
+                          fontSize: "18px",
+                          fontWeight: "600",
+                          fontFamily: "'Kodchasan', sans-serif",
+                        }}
+                      >
+                        Shipping address
+                      </Typography>
+                      <Stack direction="row" spacing={2}>
+                        <Box
+                          sx={{
+                            marginBottom: "20px",
+                            width: "100%",
+                            input: { fontFamily: "'Kodchasan', sans-serif" },
+                          }}
+                        >
+                          <TextField
+                            label="First name"
+                            variant="outlined"
+                            fullWidth
+                            {...first}
+                            sx={{
+                              fontFamily: "'Kodchasan', sans-serif",
+                            }}
+                          />
+                          <Typography
+                            sx={{
+                              color: "red",
+                              fontFamily: "'Kodchasan', sans-serif",
+                              fontSize: "14px",
+                            }}
+                          >
+                            {errors.first?.message}
+                          </Typography>
+                        </Box>
+                        <Box
+                          sx={{
+                            marginBottom: "20px",
+                            width: "100%",
+                            input: { fontFamily: "'Kodchasan', sans-serif" },
+                          }}
+                        >
+                          <TextField
+                            label="Last name"
+                            variant="outlined"
+                            fullWidth
+                            {...lastname}
+                          />
+                          <Typography
+                            sx={{
+                              color: "red",
+                              fontFamily: "'Kodchasan', sans-serif",
+                              fontSize: "14px",
+                            }}
+                          >
+                            {errors.lastname?.message}
+                          </Typography>
+                        </Box>
+                      </Stack>
+                      <Box
+                        sx={{
+                          marginBottom: "20px",
+                          input: { fontFamily: "'Kodchasan', sans-serif" },
+                        }}
+                      >
+                        <TextField
+                          label="Country/Region"
+                          variant="outlined"
+                          fullWidth
+                        />
+                      </Box>
+                      <Box
+                        sx={{
+                          marginBottom: "20px",
+                          input: { fontFamily: "'Kodchasan', sans-serif" },
+                        }}
+                      >
+                        <TextField
+                          label="Address"
+                          variant="outlined"
+                          fullWidth
+                          {...address}
+                        />
+                        <Typography
+                          sx={{
+                            color: "red",
+                            fontFamily: "'Kodchasan', sans-serif",
+                            fontSize: "14px",
+                          }}
+                        >
+                          {errors.address?.message}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Box>
+
+                  
+
                 </Col>
                 <Col lg={6}>
                  
@@ -270,10 +478,10 @@ function CheckBox() {
                         </div>
                         
                         <div className="col-6 d-flex justify-content-center align-items-center">
-                            <div className={styles.name_products}>{item.name}</div>
+                            <div className={styles.name_products}>{item.name} x <span>{item.quantity}</span></div>
                         </div>
                         <div className="col-2 d-flex justify-content-center">
-                            <div className={styles.price_products}>${item.price}</div>
+                            <div className={styles.price_products}>₫ {(item.price_sale  * item.quantity).toFixed(3)}</div>
                         </div>
                             
                         
@@ -286,7 +494,8 @@ function CheckBox() {
               </Row>
               <Box
               sx={{paddingTop:'20px', paddingBottom:"20px"}}
-              ><Button variant="contained" >ORDER NOW</Button></Box>
+              ><Button variant="contained" type="submit">ORDER NOW</Button>
+              </Box>
             </form>
           </Container>
         ) : (
