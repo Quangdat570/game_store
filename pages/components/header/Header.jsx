@@ -263,7 +263,7 @@ export default function Header() {
           <div>
           {!auth.currentUser ? (
                                   
-                                    <Link href='/login'><button className={styles.button_login}>Login</button></Link>
+                                    <Link href='/login'><PersonIcon sx={{fontSize:'25px', color:"#fff"}} /></Link>
                                 ) : (
                                  
                                     <Box>
